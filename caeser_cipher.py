@@ -15,13 +15,18 @@ def caesar_cipher(text, shift, mode='encrypt'):
     return result
 
 
-message = input("Enter your message: ")
-shift_value = int(input("Enter shift value: "))
-operation = input("Type 'encrypt' to encrypt or 'decrypt' to decrypt: ").strip().lower()
+while True:
+    message = input("\nEnter your message: ")
+    shift_value = int(input("Enter shift value: "))
+    operation = input("Type 'encrypt' to encrypt or 'decrypt' to decrypt: ").strip().lower()
 
-
-if operation not in ['encrypt', 'decrypt']:
-    print("Invalid operation. Please type 'encrypt' or 'decrypt'.")
-else:
-    output = caesar_cipher(message, shift_value, operation)
-    print("Result:", output)
+    if operation not in ['encrypt', 'decrypt']:
+        print("Invalid operation. Please type 'encrypt' or 'decrypt'.")
+    else:
+        output = caesar_cipher(message, shift_value, operation)
+        print("Result:", output)
+    
+    again = input("\nDo you want to run again? (yes/no): ").strip().lower()
+    if again != 'yes':
+        print("Goodbye!")
+        break
